@@ -45,11 +45,11 @@ So the basic code flow is (via cron every x minutes (default 10)):
 * check IPS log for emerging-p2p events
 * if emerging-p2p event found, pull timestamp and MAC from it
 * check MAC against known Ubiquiti MAC OUI's to remove any LAN ports that may have triggered emerging-p2p
-* read previously banned macs from flat file - bannedmacs_<siteid>.txt (these files are create dynamically if they dont exist)
+* read previously banned macs from flat file - bannedmacs_(siteid).txt (these files are create dynamically if they dont exist)
 * categorize MAC's from banned macs file and IPS logs
 * if previously banned MAC has passed bantime (default 2 hours) unban it, otherwise leave banned
 * ban new MAC addresses for x hours (default 2 hours)
-* write banned MAC's back out to flat file - bannedmacs_<siteid>.txt (these files are create dynamically if they dont exist)
+* write banned MAC's back out to flat file - bannedmacs_(siteid).txt (these files are create dynamically if they dont exist)
 * display report and send report via email if set, and only if a ban or unban has taken place - no point sending an email every x minutes if nothing has happened
 
 

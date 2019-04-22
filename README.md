@@ -124,10 +124,12 @@ Installation:
 
 
 1) Download and copy the attached file autoban.php to a directory under webroot
-2) Edit the variables at the to of the file as needed - pay special attention tot he already mentioned $site_id and $site_friendly variables
-3) Make sure the folder has the correct permissions
-4) Run the php script manually to check it works - check on screen report and check autoban.log in the same directory
-5) If all looks good, add the script to cron -
+
+2) Download the Client.php from slooffmasters API Class zip, from his thread here: https://community.ubnt.com/t5/UniFi-Wireless/PHP-class-to-access-the-UniFi-controller-API-updates-and/m-p/1512870 . Once you have the zip file, copy the Client.php file into a folder under the webroot (I copied the zip contents into a folder named /uniapi)
+3) Edit the variables at the to of the file as needed - pay special attention tot he already mentioned $site_id and $site_friendly variables
+4) Make sure the folder has the correct permissions
+5) Run the php script manually to check it works - check on screen report and check autoban.log in the same directory
+6) If all looks good, add the script to cron -
 
 
 For me on Ubuntu 18.04:

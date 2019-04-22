@@ -109,6 +109,7 @@ IMPORTANT NOTE: Im not going to get into conversatiosn on IPS and whether it sho
 
 
 mkdir -p /var/www/html/autoban
+
 chown -R www-data:www-data /var/www/html/autoban
 
 

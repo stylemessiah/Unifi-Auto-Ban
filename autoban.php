@@ -72,11 +72,11 @@ $script_schedule = "9 minutes";
 // siteid's separated by commas
 
 // edit to include siteid from URL
-$sites = "qn7b0p4m,default,13zpwewc";
+$sites = "default";
 
 // edit to include friendly site names in same order as sites (site id) above!, and again 
 // separated by commas
-$sites_friendly = "East End Lodge,Museum Lodge,Orwell Lodge";
+$sites_friendly = "Home Wifi";
 
 
 // ubiquiti oui file variable

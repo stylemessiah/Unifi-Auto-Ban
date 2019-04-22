@@ -128,7 +128,7 @@ Installation:
 
 For me on Ubuntu 18.04:
 
-crontab -e
+crontab -u www-data -e
 
 Adding at end of file:
 

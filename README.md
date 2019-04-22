@@ -151,7 +151,7 @@ Known issues:
 1) MAC address not blocked/unblocked
 
 
-On occasion, A MAC address may not be banned or unbanned. initially i thought this might be happenign when mutiple MAC's were being banned or unbanned, which is why i added a 5 second sleep i the block_sta() and unblock_sta() calls, but ive still seen this happen. One thing anyone who has interacted with the Unifi code is that it can sometimes return inconsistent data. What happens with the MAC's not being banned or unbanned - if we look at the unban example is that the call is made and a true is returned to my script and the MAC is rmeoved form the bannedmac_<siteid>.txt file which tracks banned MAC's...only on the system, despite the unblock_sta(MAC) call returnign a true, the MAC is not actually unblocked in the controller.
+On occasion, A MAC address may not be banned or unbanned. initially i thought this might be happening when multiple MAC's were being banned or unbanned, which is why i added a 5 second sleep in the block_sta() and unblock_sta() calls, but ive still seen this happen. One thing anyone who has interacted with the Unifi code is that it can sometimes return inconsistent data. What happens with the MAC's not being banned or unbanned - if we look at the unban example is that the call is made and a true is returned to my script and the MAC is rmeoved form the bannedmac_<siteid>.txt file which tracks banned MAC's...only on the system, despite the unblock_sta(MAC) call returning a true, the MAC is not actually unblocked in the controller.
 
 
 Currently an api call to list the currently blocked MAC's is not in slooffmasters api, but thats what ill be looking for next to double check the unblock_sta call against that....

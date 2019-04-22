@@ -545,6 +545,7 @@ foreach (array_combine($sites_array, $sites_friendly_array) as $site => $sitefri
     // here we UNBAN existing banned MAC's
     
     if (!empty($unban_array)) {
+        global $send_email;
         $message .= "<p><b>Unbanned MACs: <p></b>";
         $message .= "<table border='1' cellpadding='5'>";
         $message .= "<thead><tr><th>MAC Address</th><th>Banned at</th><th>Unbanned at</th></tr><tbody>";
@@ -587,6 +588,7 @@ foreach (array_combine($sites_array, $sites_friendly_array) as $site => $sitefri
     // here we create NEW bans
     
     if (!empty($ban_array)) {
+        global $send_email;
         $message .= "<p><b>Newly Banned MACs:</b> <p>";
         $message .= "<table border='1' cellpadding='5'>";
         $message .= "<thead><tr><th>MAC Address</th><th>Banned at</th><th>Banned Until</th></tr><tbody>";

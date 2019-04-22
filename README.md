@@ -4,10 +4,13 @@ A php script to automatically ban/unban users who trigger an IPS filter on Unifi
 
 Unifi Auto-Ban/Auto-Unban
 
+
 What is it?
+
 
 Its a PHP script that uses IPS logs to find users who trigger the emerging-p2p category and then automatically ban their MAC
 for a user selectable period, after which they will be automatically unbanned.
+
 
 While its written specifically for my needs, to block P2P users, it can of course be adapted for other uses.
 
@@ -17,7 +20,9 @@ Why did you write it?
 
 Because while we dont censor any traffic on our wifi networks, we do object to apps and traffic that swamps and adversely affects traffic, and P2P by its nature opening hundreds of connections, is the one thing we police so the network is available to all fairly. Up until i wrote this script, i was playing whack a mole manually banning people, and even worse were those who knew how to spoof their MAC, meaning i was often banning someone, only to have to ban their spoofed MAC 5 minutes later, and for hours on end.....
 
+
 Hopefully with the script running every x minutes via cron, people begin to correlate their behaviour with the ban and stop trying to outsmart you, if not they just continue to get banned....i do have plans to notify the user via captive portal, but thats on the todo list for the moment as we dont currently use the captive portal....
+
 
 I tried to keep this as simple as possible, what info is stored is done in plain old flat (text) files, no databases etc. Though others may feel free to take this script in that or other directions...after all i wrote this to fill my needs, and im not a professional coder, up until recently i hant touched php since about v4 :) So any code suggestions are appreciated. Ive commented the code as well as i can as not only does it help me remember how it functions, but hopefully it helps anyone wanting to improve/reuse it or parts of it.
 
@@ -115,7 +120,7 @@ Installation:
 
 
 1) Download and copy the attached file autoban.php to a directory under webroot
-2) Edit the variables at the to of the file as needed - pay special attention tot he alreayd mentioned $site_id and $site_friendly variables
+2) Edit the variables at the to of the file as needed - pay special attention tot he already mentioned $site_id and $site_friendly variables
 3) Make sure the folder has the correct permissions
 4) Run the php script manually to check it works - check on screen report and check autoban.log in the same directory
 5) If all looks good, add the script to cron -
@@ -127,7 +132,7 @@ crontab -e
 
 Adding at end of file:
 
-*/x * * * * /usr/bin/php <path to script undr webroot> > /dev/null 2>&1
+*/x * * * * /usr/bin/php <path to script under webroot> > /dev/null 2>&1
 
 where x is the number of minutes to run it on schedule, i.e for every 10 minutes
 
@@ -149,3 +154,8 @@ Currently an api call to list the currently blocked MAC's is not in slooffmaster
 
 
 But for the bulk of the time, the code does its job. The worst that can happen is that a MAC doesnt get blocked - so youre no worse off than before), or isnt unblocked - and i personally am not losing sleep over bans longer than $ban_time (default), as before this script i would leave them banned permanently.
+
+
+
+
+

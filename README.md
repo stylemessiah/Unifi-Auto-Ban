@@ -136,7 +136,7 @@ crontab -u www-data -e
 
 Adding at end of file:
 
-*/x * * * * /usr/bin/php <path to script under webroot> > /dev/null 2>&1
+*/x * * * * /usr/bin/php (path to script under webroot) > /dev/null 2>&1
 
 where x is the number of minutes to run it on schedule, i.e for every 10 minutes
 

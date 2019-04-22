@@ -60,6 +60,7 @@ Note: there are 2 variables that relate to the site(s):
 
 
 $sites
+
 $sites_friendly
 
 
@@ -74,6 +75,7 @@ For example if i have one site (with siteid "default", and the site name "Home W
 
 
 $sites = "default";
+
 $sites_friendly = "Home Wifi";
 
 
@@ -82,6 +84,7 @@ look like this (siteid's and site names separated by commas (no spaces before ar
 
 
 $sites = "default,zn7b0p4m";
+
 $sites_friendly = "Home Wifi,Work Wifi";
 
 

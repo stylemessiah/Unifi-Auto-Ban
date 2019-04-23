@@ -231,10 +231,7 @@ function ban_file_to_array($filename) {
 function write_banned_macs($filename, $array) {
     $file = fopen($filename, "w");
     foreach ($array as $key => $value) {
-        $row = array(
-            $key,
-            $value
-        );
+        $row = array($key, $value);
         fputcsv($file, $row);
     }
     fclose($file);

@@ -113,7 +113,7 @@ IMPORTANT NOTE: Im not going to get into conversatiosn on IPS and whether it sho
 
 mkdir -p /var/www/html/autoban
 
-chown -R www-data:www-data /var/www/html/autoban
+chown -R www-data:www-data /var/www/html/autoban/ *
 
 
 Please note: Its up to you to check your OS's requirements for setitng permissions for webroot. This thread is not an OS or web server support thread.Please use the support forum of the vendor of your OS if you have any questions. No discussions will be entertained on basic OS or web server
@@ -122,29 +122,57 @@ configuration.
 
 Installation:
 
+1) create folder under webroot and navigate to to it
 
-1) Download and copy the attached file autoban.php to a directory under webroot
+2) Download autoban.php for github:
 
-2) Download the Client.php from slooffmasters API Class zip, from his thread here: https://community.ubnt.com/t5/UniFi-Wireless/PHP-class-to-access-the-UniFi-controller-API-updates-and/m-p/1512870 . Once you have the zip file, copy the Client.php file into a folder under the webroot (I copied the zip contents into a folder named /uniapi)
-3) Edit the variables at the top of the file as needed - pay special attention tot he already mentioned $sites and $sites_friendly variables
-4) Make sure the folder has the correct permissions
-5) Run the php script manually to check it works - check on screen report and check autoban.log in the same directory
-6) If all looks good, add the script to cron -
+curl -s https://raw.githubusercontent.com/stylemessiah/Unifi-Auto-Ban/master/autoban.php -o autoban.php
 
+3) Download slooffmasters Client API -
 
-For me on Ubuntu 18.04:
+Either via 
+
+a) Readng about it here fiurst in his thread: https://community.ubnt.com/t5/UniFi-Wireless/PHP-class-to-access-the-UniFi-controller-API-updates-and/m-p/1512870
+
+b) Or going firectly to his github here: https://github.com/Art-of-WiFi/UniFi-API-client
+
+Yes you can just download the Client.pnp separately, but you should really download the entire zip as the example setc may lead you into other areas
+
+c) Direct download of Client.api (alone) is here: 
+
+curl -s https://raw.githubusercontent.com/Art-of-WiFi/UniFi-API-client/master/src/Client.php -o Client.api
+
+4) set variables in autoban.php - follow the notes carefully
+
+5) set permissions as needed
+
+For me on Ubuntu 18.04, using php 7.2 and php-fpm, which runs as www-data, i used:
+
+chown -R www-data:www-data /var/www/html/autoban/ *
+
+Note: once the autoban.php script has the group permissions of the webserver in this step, on first run it will create all the extra needed files with correct permissions
+
+6) run script once to test (and generate needed files - script creates needed files and with correct permissions) - browse http://url/autoban.php
+
+7) check on screen report (hopefully you get one) and log file if you dont (hopefully you get this (as well)
+
+8) if all looks good create the cron job (using the same user as webserver is best)
 
 crontab -u www-data -e
 
-Adding at end of file:
+add line
 
-*/x * * * * /usr/bin/php (path to script under webroot) > /dev/null 2>&1
+*/X * * * * /usr/bin/php -f /var/www/html/admin/autoban.php > /dev/null 2>&1
 
-where x is the number of minutes to run it on schedule, i.e for every 10 minutes
+where X is the frequency you want to run the autoban script 
 
-*/10 * * * * /usr/bin/php /var/www/html/autoban/autoban.php > /dev/null 2>&1
+*/10 * * * * /usr/bin/php -f /var/www/html/admin/autoban.php > /dev/null 2>&1
 
 Please note the interaction with the variable $script_schedule which by default is set at 9 minutes (1 minute less than the cron schedule. If you change the cron schedule, also change the $script_schedule......
+
+9) unban any currently banned users 
+
+10) test
 
 
 Known issues:

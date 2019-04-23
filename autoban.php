@@ -1,10 +1,10 @@
 <?php
-// Get current working directory - where script is run from, and a a trailing slash,
+// Set current working directory - where script is run from, and add a trailing slash,
 // eliminates setting long paths for variables that include a path....
 //
-// change to match where you palce the script
+// change to match where you palce the script, dont forget to add the trailing slash folks
 
-$scriptpath = "/var/www/html/autoban";
+$scriptpath = "/var/www/html/autoban/";
 
 
 ///////////////////////////////////

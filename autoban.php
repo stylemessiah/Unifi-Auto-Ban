@@ -10,7 +10,7 @@ $scriptpath = getcwd() . "/";
 ///////////////////////////////////
 
 // this needs to be the path to slooffmasters Client.php file,
-require_once("/var/www/html/admin/uniapi/src/Client.php");
+require_once("/var/www/html/autoban/uniapi/src/Client.php");
 
 ///////////////////////////////////
 ///////// Includes (End) //////////

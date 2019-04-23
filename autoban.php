@@ -665,7 +665,7 @@ foreach (array_combine($sites_array, $sites_friendly_array) as $site => $sitefri
                     write_to_log($log_file, "MAC: " . $value . " Banned at: " . nice_time($key) . " Unbanned at: " . nice_time(time()));
                     // variable to let the email routine know to send emai as soemthig has happened - emails only sent when a MAC is banned/unbanned
                     // otherwise we'd get an email every time the script ran, regardless of anything happening, and that would be annoying!
-                    $send_email = "y";
+                    $send_email .= "y";
                     // search $unban_array for MAC
                     $index      = array_search($value, $unban_array);
                     // if index is found (should be:))
@@ -710,7 +710,7 @@ foreach (array_combine($sites_array, $sites_friendly_array) as $site => $sitefri
                     write_to_log($log_file, "MAC: " . $value . " Banned at: " . nice_time(time()) . " Banned until: " . nice_unban_time(time()));
                     // variable to let the email routine know to send emai as soemthig has happened - emails only sent when a MAC is banned/unbanned
                     // otherwise we'd get an email every time the script ran, regardless of anything happening, and that would be annoying!
-                    $send_email = "y";
+                    $send_email .= "y";
                     // sleep added to troubleshoot some MAC's not being unbanned at times,
                     // theory being that this was only happening when multiple MAC's were
                     // being unbanned, despite the return code from unblocksta(), the MAC's

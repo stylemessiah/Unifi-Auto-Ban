@@ -1,15 +1,19 @@
 <?php
 // Get current working directory - where script is run from, and a a trailing slash,
 // eliminates setting long paths for variables that include a path....
+//
+// change to match where you palce the script
 
-$scriptpath = getcwd() . "/";
+$scriptpath = "/var/www/html/autoban";
 
 
 ///////////////////////////////////
 ///////// Includes (Start) ////////
 ///////////////////////////////////
 
-// this needs to be the path to slooffmasters Client.php file,
+// change to be the path to slooffmasters Client.php file,
+// i grabbed is zip file and unzipped to /var/www/html//autoban/uniapi
+// adjust to suit where you place the Client.php file
 require_once("/var/www/html/autoban/uniapi/src/Client.php");
 
 ///////////////////////////////////
@@ -554,11 +558,13 @@ foreach (array_combine($sites_array, $sites_friendly_array) as $site => $sitefri
     // distribution (WUDO) related
     $final_ips_array = array();
     foreach ($ips_array as $item) {
-        if (isset($item->catname) && $item->catname === "emerging-p2p") {
-            if (filter_var($item->src_mac, FILTER_VALIDATE_MAC) === false || strpos($item->msg, "WUDO") !== false) {
-                continue;
-            } else {
-                $final_ips_array[$item->timestamp] = $item->src_mac;
+            if (isset($item->catname) && $item->catname === "emerging-p2p") {
+            if(isset($item->src_mac)){
+                if (filter_var($item->src_mac, FILTER_VALIDATE_MAC) === false || strpos($item->msg, "WUDO") !== false) {
+                    continue;
+                } else {
+                    $final_ips_array[$item->timestamp] = $item->src_mac;
+                }
             }
         }
     }

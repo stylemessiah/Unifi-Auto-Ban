@@ -132,11 +132,11 @@ curl -s https://raw.githubusercontent.com/stylemessiah/Unifi-Auto-Ban/master/aut
 
 Either via 
 
-a) Readng about it here fiurst in his thread: https://community.ubnt.com/t5/UniFi-Wireless/PHP-class-to-access-the-UniFi-controller-API-updates-and/m-p/1512870
+a) Reading about it here first in his thread: https://community.ubnt.com/t5/UniFi-Wireless/PHP-class-to-access-the-UniFi-controller-API-updates-and/m-p/1512870
 
-b) Or going firectly to his github here: https://github.com/Art-of-WiFi/UniFi-API-client
+b) Or going directly to his github here: https://github.com/Art-of-WiFi/UniFi-API-client
 
-Yes you can just download the Client.pnp separately, but you should really download the entire zip as the example setc may lead you into other areas
+Yes you can just download the Client.pnp separately, but you should really download the entire zip as the examples etc may lead you into other areas
 
 c) Direct download of Client.api (alone) is here: 
 

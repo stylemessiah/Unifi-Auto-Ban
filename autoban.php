@@ -219,7 +219,7 @@ function file_to_array($filename) {
 // key (timestamp) ->  value (src_mac) pair
 function ban_file_to_array($filename) {
     $array = array();
-    $csv   = array_map('str_getcsv', file($filename));
+    $csv = array_map('str_getcsv', file($filename));
     foreach ($csv as $line) {
         $array[$line[0]] = $line[1];
     }
@@ -289,13 +289,13 @@ function process_valid_macs($query_array, $ref_array) {
     global $banned_array;
     global $ban_array;
     // create new array for MACs to unban $unban_array
-    $unban_array  = array();
+    $unban_array = array();
     // create new array for MAC's that need to stay banned for now
     $banned_array = array();
     // create new array for MAC's to be banned
-    $ban_array    = array();
+    $ban_array = array();
     // convert array contents to lower case
-    $ref_array    = array_map('strtolower', $ref_array);
+    $ref_array = array_map('strtolower', $ref_array);
     // iterate through array pulling out $value (MAC) from $query_array
     foreach ($query_array as $key => $value) {
         // check to see if MAC exists  in $ref_array
@@ -316,7 +316,7 @@ function process_valid_macs($query_array, $ref_array) {
                     $unban_array[$index] = $ref_array[$index];
                     // search for MAC in $query_array as we want to remove it from there too
                     // we dont want to  ban it again
-                    $resultsq            = in_array($ref_array[$index], $query_array);
+                    $resultsq = in_array($ref_array[$index], $query_array);
                     // if MAC is found
                     if ($resultsq == true) {
                         // finds MACs index
@@ -442,8 +442,8 @@ if (!file_exists($oui_file_temp)) {
 }
 
 // search $oui_file_temp for "Ubiquiti" entries and output them into $oui_file
-$search      = "Ubiquiti";
-$matches     = array();
+$search = "Ubiquiti";
+$matches = array();
 $ouifiletemp = @fopen($oui_file_temp, "r");
 if ($ouifiletemp) {
     while (!feof($ouifiletemp)) {
@@ -726,7 +726,7 @@ foreach (array_combine($sites_array, $sites_friendly_array) as $site => $sitefri
         }
         $message .= "</table>";
         // merge $banned_array and $ban_array together to give us the complete list of banned MAC's
-        $merged_bans       = $banned_array + $ban_array;
+        $merged_bans = $banned_array + $ban_array;
         // write the banned MAC's to $banned_mac_log
         $write_banned_macs = write_banned_macs($banned_mac_log, $merged_bans);
     }
